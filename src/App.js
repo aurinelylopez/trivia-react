@@ -1,21 +1,21 @@
 import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
 import './App.css';
-import BaoQuestion from './components/Baoquestion';
+import Baoquestion from './components/Baoquestion';
 //component that will render question
 import quizTime from './api/quiztime';
+import Score from './components/score';
 //api component containing the questions
 import BaoScore from './components/Baoscore';
 //component containing quiz score
-import answerChoices from './components/answerchoices';
+import AnswerChoices from './components/answerchoices';
 //component created to render multiple choices
 import Test from './components/Test.jsx';
-import Score from './components/score';
 import Aurinely from './components/demo';
+import PropTypes from 'prop-types';
 //component created for actual test div
 import axios from 'axios';
 //transition that for some reason is now not working
-import CSSTransitionGroup from 'react-transition-group/CSSTransitionGroup';
 
 
 
@@ -155,11 +155,13 @@ class App extends Component {
         <div className="App-header">
         <h2>BAO BAO BAO</h2>
         </div>
-        {this.state.result ? this.renderResult() : this.renderTest()}      </div>      
+        {this.state.result ? this.renderResult() : this.renderTest()}
+        <Baoquestion />
+        <AnswerChoices />
+        <BaoScore />
+              </div>      
     );
   }
 
 }
 export default App;
-
-ReactDOM.render(<Aurinely/>, document.getElementById('test'))
